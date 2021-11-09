@@ -67,6 +67,23 @@ def nth_last_element(linked_list, n=1):
     
     return nth_node.data
 
+def middle_element(linked_list):
+    head = linked_list.head
+    if head.next_node == None:
+        return head
+    
+    last_node = head
+    middle_node = head
+
+    while last_node.next_node != None:
+        last_node = last_node.next_node
+        if last_node.next_node != None:
+            last_node = last_node.next_node
+            middle_node = middle_node.next_node
+    
+    return middle_node.data
+    
+
 
 test_list = singly_linked_list(0)
 
