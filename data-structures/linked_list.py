@@ -30,16 +30,4 @@ class singly_linked_list:
 
     def __str__(self):
         return str(self.head)
-    
-        
 
-list = singly_linked_list("I am the head node")
-list.add_to_tail(Node(data="I am the second node"))
-list.add_to_tail(Node(data="I am the final"))
-list.add_to_head(Node(data="I am now the new head"))
-
-print(list)
-
-removed_head = list.remove_head()
-
-print(list)
