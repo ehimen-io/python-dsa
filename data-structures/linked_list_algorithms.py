@@ -49,17 +49,29 @@ def swap_nodes(linked_list, first_node, second_node):
     
     return linked_list
 
+def nth_last_element(linked_list, n=1):
+    head = linked_list.head
+    if head.next_node == None:
+        print("Only one node in the list")
+        return head
+    
+    nth_node = head
+    last_node = head
+    node_distance = 0
+
+    while last_node.next_node != None:
+        last_node = last_node.next_node
+        if node_distance >= n- 1:
+            nth_node = nth_node.next_node
+        node_distance += 1
+    
+    return nth_node.data
 
 
+test_list = singly_linked_list(0)
 
-
-test_list = singly_linked_list(-1)
-
-for number in range(7):
+for number in range(1,7):
     test_list.add_to_tail(Node(data=number))
 
 print(test_list)
-
-swapped_list = swap_nodes(test_list, first_node=-1, second_node=4)
-print(swapped_list)
 
