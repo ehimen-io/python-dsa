@@ -6,45 +6,42 @@ class Node:
     def __str__(self):
         return f"({self.data}) -> {self.next}"
 
-class Queue:
-    def __init__(self, max_length = None):
-        self.max_length = max_length
+class Stack:
+    def __init__(self, max_size = None):
+        self.max_size = max_size
         self.head = None
-        self.tail = self.head
         self.size = 0
     
-    def enqueue(self, *args):
+    def push(self, *args):
         for data in args:
             if self.size == 0:
                 self.head = Node(data)
-                self.tail = self.head
                 self.size += 1
             elif not self.isFull():
-                new_tail = Node(data)
-                current_tail = self.tail
-                current_tail.next = new_tail
-                self.tail = new_tail
+                current_head = self.head
+                new_head = Node(data, next=current_head)
+                self.head = new_head
                 self.size += 1
             else:
-                print(f"Cannot add Node({data}), queue is full.")
+                print(f"Cannot push any more data, stack is full")
                 break
-            
-
-    def dequeue(self):
+    
+    def pop(self):
         head = self.head
         if not self.isEmpty():
-            self.head = head.next
+            new_head = head.next
+            self.head = new_head
         else:
-            print("Queue is empty")
+            print("Stack is Empty")
         
-        return head
+        return head.data
 
     def peek(self):
         return self.head.data
 
     def isFull(self):
-        if self.max_length != None:
-            return self.size >= self.max_length
+        if self.max_size != None:
+            return self.size >= self.max_size
         else:
             return False
     
@@ -53,3 +50,5 @@ class Queue:
     
     def __str__(self):
         return str(self.head)
+
+test_stack = Stack()
