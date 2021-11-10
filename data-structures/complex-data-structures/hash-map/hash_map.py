@@ -27,11 +27,3 @@ class Hash_Map:
     
     def __str__(self):
         return str(self.data)
-
-test_map = Hash_Map(5)
-test_map.put("Owens", "Ehimen")
-test_map.put("Johnny", "Bravo")
-test_map.put("Comfort", "Survival")
-print(test_map)
-
-print(test_map.get("Owens"))
