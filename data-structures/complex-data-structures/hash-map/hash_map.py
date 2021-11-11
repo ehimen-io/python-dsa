@@ -18,7 +18,6 @@ class Hash_Map:
         else:
             self.data[hash_code].append((key, value))
 
-
     def hash(self, key: str):
         hash_code = 0
         for character in key:
