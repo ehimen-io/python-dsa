@@ -1,5 +1,3 @@
-from random import randint
-
 class Tree_Node:
     def __init__(self, data, height = 0):
         self.data = data
